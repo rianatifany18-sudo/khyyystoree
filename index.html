@@ -1,0 +1,613 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>KhyyStore - Jual Akun Sosmed</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      font-family:'Poppins',sans-serif;
+    }
+
+    body{
+      background:#0f172a;
+      color:white;
+      overflow-x:hidden;
+    }
+
+    .bg-glow{
+      position:fixed;
+      width:500px;
+      height:500px;
+      border-radius:50%;
+      background:rgba(99,102,241,0.25);
+      filter:blur(100px);
+      z-index:-1;
+    }
+
+    .bg1{
+      top:-150px;
+      left:-100px;
+    }
+
+    .bg2{
+      bottom:-150px;
+      right:-100px;
+      background:rgba(236,72,153,0.25);
+    }
+
+    header{
+      padding:20px 8%;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      position:sticky;
+      top:0;
+      backdrop-filter:blur(12px);
+      background:rgba(15,23,42,0.7);
+      z-index:1000;
+      border-bottom:1px solid rgba(255,255,255,0.08);
+    }
+
+    .logo{
+      font-size:28px;
+      font-weight:700;
+      background:linear-gradient(45deg,#60a5fa,#ec4899);
+      -webkit-background-clip:text;
+      -webkit-text-fill-color:transparent;
+    }
+
+    nav a{
+      color:white;
+      text-decoration:none;
+      margin-left:28px;
+      transition:0.3s;
+      font-weight:500;
+    }
+
+    nav a:hover{
+      color:#60a5fa;
+    }
+
+    .hero{
+      min-height:100vh;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      padding:80px 8%;
+      gap:50px;
+      flex-wrap:wrap;
+    }
+
+    .hero-text{
+      flex:1;
+      min-width:300px;
+    }
+
+    .hero-text h1{
+      font-size:64px;
+      line-height:1.1;
+      margin-bottom:20px;
+    }
+
+    .hero-text span{
+      background:linear-gradient(45deg,#60a5fa,#ec4899);
+      -webkit-background-clip:text;
+      -webkit-text-fill-color:transparent;
+    }
+
+    .hero-text p{
+      color:#cbd5e1;
+      line-height:1.8;
+      margin-bottom:30px;
+      max-width:600px;
+    }
+
+    .hero-buttons{
+      display:flex;
+      gap:15px;
+      flex-wrap:wrap;
+    }
+
+    .btn{
+      padding:14px 30px;
+      border:none;
+      border-radius:14px;
+      cursor:pointer;
+      font-weight:600;
+      transition:0.3s;
+      text-decoration:none;
+      display:inline-block;
+    }
+
+    .btn-primary{
+      background:linear-gradient(45deg,#3b82f6,#ec4899);
+      color:white;
+      box-shadow:0 10px 25px rgba(236,72,153,0.35);
+    }
+
+    .btn-primary:hover{
+      transform:translateY(-4px);
+    }
+
+    .btn-secondary{
+      background:rgba(255,255,255,0.08);
+      color:white;
+      border:1px solid rgba(255,255,255,0.12);
+    }
+
+    .hero-image{
+      flex:1;
+      display:flex;
+      justify-content:center;
+      min-width:300px;
+    }
+
+    .hero-image img{
+      width:100%;
+      max-width:520px;
+      border-radius:30px;
+      box-shadow:0 20px 60px rgba(0,0,0,0.45);
+      animation:float 4s ease-in-out infinite;
+    }
+
+    @keyframes float{
+      0%,100%{
+        transform:translateY(0px);
+      }
+      50%{
+        transform:translateY(-15px);
+      }
+    }
+
+    section{
+      padding:90px 8%;
+    }
+
+    .section-title{
+      text-align:center;
+      margin-bottom:60px;
+    }
+
+    .section-title h2{
+      font-size:42px;
+      margin-bottom:10px;
+    }
+
+    .section-title p{
+      color:#cbd5e1;
+    }
+
+    .card-grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+      gap:30px;
+    }
+
+    .card{
+      background:rgba(255,255,255,0.06);
+      border:1px solid rgba(255,255,255,0.08);
+      border-radius:24px;
+      overflow:hidden;
+      transition:0.35s;
+      backdrop-filter:blur(15px);
+    }
+
+    .card:hover{
+      transform:translateY(-10px);
+      box-shadow:0 20px 40px rgba(0,0,0,0.35);
+    }
+
+    .card img{
+      width:100%;
+      height:220px;
+      object-fit:cover;
+    }
+
+    .card-content{
+      padding:24px;
+    }
+
+    .card-content h3{
+      margin-bottom:10px;
+      font-size:24px;
+    }
+
+    .paket-select{
+      width:100%;
+      padding:14px;
+      border-radius:12px;
+      border:none;
+      margin-bottom:18px;
+      background:rgba(255,255,255,0.08);
+      color:white;
+      outline:none;
+      font-size:15px;
+    }
+
+    .paket-select option{
+      background:#0f172a;
+      color:white;
+    }
+
+    .card-content p{
+      color:#cbd5e1;
+      line-height:1.7;
+      margin-bottom:18px;
+    }
+
+    .price{
+      font-size:28px;
+      font-weight:700;
+      color:#60a5fa;
+      margin-bottom:18px;
+    }
+
+    .stats{
+      display:flex;
+      justify-content:space-between;
+      margin-bottom:18px;
+      color:#94a3b8;
+      font-size:14px;
+    }
+
+    .features{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+      gap:25px;
+    }
+
+    .feature-box{
+      background:rgba(255,255,255,0.05);
+      padding:30px;
+      border-radius:22px;
+      text-align:center;
+      border:1px solid rgba(255,255,255,0.08);
+      transition:0.3s;
+    }
+
+    .feature-box:hover{
+      transform:translateY(-8px);
+    }
+
+    .feature-box .icon{
+      font-size:50px;
+      margin-bottom:15px;
+    }
+
+    .feature-box h3{
+      margin-bottom:10px;
+    }
+
+    .feature-box p{
+      color:#cbd5e1;
+      line-height:1.7;
+    }
+
+    .testimonial{
+      background:linear-gradient(135deg,rgba(59,130,246,0.15),rgba(236,72,153,0.15));
+      border-radius:30px;
+      padding:50px;
+      text-align:center;
+      border:1px solid rgba(255,255,255,0.08);
+    }
+
+    .testimonial img{
+      width:100px;
+      height:100px;
+      border-radius:50%;
+      object-fit:cover;
+      margin-bottom:20px;
+      border:4px solid rgba(255,255,255,0.15);
+    }
+
+    .testimonial p{
+      color:#e2e8f0;
+      line-height:1.9;
+      max-width:700px;
+      margin:auto;
+      margin-bottom:20px;
+    }
+
+    .cta{
+      text-align:center;
+      background:linear-gradient(135deg,#2563eb,#db2777);
+      border-radius:30px;
+      padding:70px 30px;
+      margin:90px 8%;
+    }
+
+    .cta h2{
+      font-size:48px;
+      margin-bottom:15px;
+    }
+
+    .cta p{
+      max-width:700px;
+      margin:auto;
+      line-height:1.8;
+      margin-bottom:25px;
+    }
+
+    footer{
+      text-align:center;
+      padding:35px;
+      color:#94a3b8;
+      border-top:1px solid rgba(255,255,255,0.08);
+      margin-top:80px;
+    }
+
+    @media(max-width:900px){
+      .hero-text h1{
+        font-size:46px;
+      }
+
+      nav{
+        display:none;
+      }
+
+      .hero{
+        padding-top:120px;
+      }
+    }
+
+    @media(max-width:600px){
+      .hero-text h1{
+        font-size:38px;
+      }
+
+      .section-title h2{
+        font-size:32px;
+      }
+
+      .cta h2{
+        font-size:34px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="bg-glow bg1"></div>
+  <div class="bg-glow bg2"></div>
+
+  <header>
+    <div class="logo">Khyystore</div>
+
+    <nav>
+      <a href="#produk">Produk</a>
+      <a href="#fitur">Fitur</a>
+      <a href="#testimoni">Testimoni</a>
+      <a href="#kontak">Kontak</a>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <div class="hero-text">
+      <h1>Jual Akun <span>Sosmed aman</span> dan Terpercaya</h1>
+
+      <p>
+        Temukan berbagai akun sosial media berkualitas untuk kebutuhan bisnis atau personal kamu. Pilih paket sesuai kebutuhan dan beli dengan mudah via WhatsApp.
+      </p>
+
+      <div class="hero-buttons">
+        <a href="#produk" class="btn btn-primary">Lihat Produk</a>
+        <a href="#kontak" class="btn btn-secondary">Hubungi Admin</a>
+      </div>
+    </div>
+
+    <div class="hero-image">
+      <img src="https://i.ibb.co/7t62Gf51/IMG-20260514-144218.png" alt="social media" />
+    </div>
+  </section>
+
+  <section id="produk">
+    <div class="section-title">
+      <h2>Produk Terlaris</h2>
+      <p>Pilih akun sosial media sesuai kebutuhan kamu</p>
+    </div>
+
+    <div class="card-grid">
+
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1557200134-90327ee9fafa?q=80&w=1200&auto=format&fit=crop" alt="Email Service" />
+
+        <div class="card-content">
+          <h3>Gmail cuyy</h3>
+
+          <div class="stats">
+            <span>✔ Fast Setup</span>
+            <span>✔ Secure Access</span>
+          </div>
+
+          <p>
+            Layanan pembuatan email dan bantuan setup akun digital.
+          </p>
+
+          <select class="paket-select">
+            <option>Gmail Fresh - Rp3.500</option>
+			<option>Gmail Bekas - Rp2.000</option>
+            <option>Custom Gmail - Rp6.000</option>
+            <option>Gmail Trial Yt - Rp6.000</option>
+            <option>Gmail Trial Gemini - Rp7.000</option>
+          </select>
+
+          <a href="https://wa.me/6283869485180?text=Halo%20saya%20ingin%20membeli%20layanan%20email%20dan%20digital" class="btn btn-primary" target="_blank">Beli via WhatsApp</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1611262588024-d12430b98920?q=80&w=1200&auto=format&fit=crop" alt="Instagram" />
+
+        <div class="card-content">
+          <h3>Instagram Sesuai foll</h3>
+
+          <div class="stats">
+            <span>✔ Real Followers</span>
+            <span>✔ Fast Delivery</span>
+          </div>
+
+          <p>
+            Pilih paket followers Instagram sesuai kebutuhan kamu.
+          </p>
+
+          <select class="paket-select">
+            <option>Instagram 100 Followers - Rp5.000</option>
+            <option>Instagram 1K Followers - Rp45.000</option>
+            <option>Instagram Old Account  - Rp25.000</option>
+            <option>Instagram Fesh Account - Rp1.000</option>
+          </select>
+
+          <a href="https://wa.me/6281234567890?text=Halo%20saya%20ingin%20membeli%20paket%20Instagram" class="btn btn-primary" target="_blank">Beli via WhatsApp</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <img src="https://i.ibb.co/fdKvGcwC/images.png" alt="TikTok" />
+
+        <div class="card-content">
+          <h3>TikTok Followers</h3>
+
+          <div class="stats">
+            <span>✔ Viral Boost</span>
+            <span>✔ Trusted</span>
+          </div>
+
+          <p>
+            Paket TikTok followers dan akun siap promosi.
+          </p>
+
+          <select class="paket-select">
+            <option>TikTok Fresh Account - Rp500</option>
+            <option>TikTok 100 Followers - Rp7.000</option>
+            <option>TikTok 1000 Followers - Rp75.000</option>
+            <option>TikTok 10K Followers - Rp --</option>
+          </select>
+
+          <a href="https://wa.me/6283869485180?text=Halo%20saya%20ingin%20membeli%20paket%20TikTok" class="btn btn-primary" target="_blank">Beli via WhatsApp</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <img src="https://i.ibb.co/Qjc6TXmZ/images.jpg" alt="Facebook" />
+
+        <div class="card-content">
+          <h3>Facebook Account</h3>
+
+          <div class="stats">
+            <span>✔ flast login</span>
+            <span>✔ Ready Login</span>
+          </div>
+
+          <p>
+            Berbagai pilihan akun Facebook sesuai kebutuhan bisnis atau personal.
+          </p>
+
+          <select class="paket-select">
+            <option>Facebook Fresh Account - Rp1.100</option>
+			<option>Facebook Fresh A2f    - Rp2.000</option>
+			<option>Facebook Fresh halaman - Rp4.500</option>
+			<option>Facebook Tmn 100+hlaman - Rp6.000</option>
+            <option>Facebook old Account - Rp25.000</option>
+            <option>Facebook 5K Friends - Rp30.000</option>
+          </select>
+
+          <a href="https://wa.me/6283869485180?text=Halo%20saya%20ingin%20membeli%20akun%20Facebook" class="btn btn-primary" target="_blank">Beli via WhatsApp</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <img src="https://i.ibb.co/zTGKLSNN/download.jpg" alt="YouTube" />
+
+        <div class="card-content">
+          <h3>YouTube Channel</h3>
+
+          <div class="stats">
+            <span>✔ Monet Ready</span>
+            <span>✔ Subscriber Active</span>
+          </div>
+
+          <p>
+            Channel YouTube siap upload dan monetisasi.
+          </p>
+
+          <select class="paket-select">
+            <option>YouTube 1K Subscriber - Rp150.000</option>
+            <option>YouTube Monetisasi - Rp2.250.000</option>
+            <option>YouTube Gaming Channel - Rp1.500.000</option>
+            <option>YouTube Shorts Channel - Rp850.000</option>
+          </select>
+
+          <a href="https://wa.me/6283869485180?text=Halo%20saya%20ingin%20membeli%20channel%20YouTube" class="btn btn-primary" target="_blank">Beli via WhatsApp</a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <section id="fitur">
+    <div class="section-title">
+      <h2>Kenapa Pilih Kami?</h2>
+      <p>Kami menyediakan akun sosial media berkualitas dengan harga terbaik.</p>
+    </div>
+
+    <div class="features">
+
+      <div class="feature-box">
+        <div class="icon">⚡</div>
+        <h3>Fast Response</h3>
+        <p>
+          Admin online cepat dan siap membantu proses transaksi kapan saja.
+        </p>
+      </div>
+
+      <div class="feature-box">
+        <div class="icon">🔒</div>
+        <h3>Aman & Trusted</h3>
+        <p>
+          Proses transaksi aman dan akun dicek sebelum dikirim ke pembeli.
+        </p>
+      </div>
+
+      <div class="feature-box">
+        <div class="icon">🎨</div>
+        <h3>Design Modern</h3>
+        <p>
+          Tampilan website modern dan mudah digunakan untuk pengalaman belanja yang menyenangkan.
+        </p>
+      </div>
+
+      <div class="feature-box">
+        <div class="icon">📱</div>
+        <h3>Responsive</h3>
+        <p>
+          Desain responsif yang nyaman diakses dari berbagai perangkat, termasuk smartphone.
+        </p>
+      </div>
+
+    </div>
+  </section>
+
+  <div class="cta" id="kontak">
+    <h2>Kontak Kami</h2>
+
+    <p>
+      Pilih produk yang kamu butuhkan dan hubungi admin kami untuk proses pembelian. Kami siap membantu kamu mendapatkan akun sosial media berkualitas dengan harga terbaik.
+    </p>
+
+    <a href="https://wa.me/6283869485180" class="btn btn-secondary" target="_blank">Chat WhatsApp</a>
+  </div>
+
+  <footer>
+    © 2026 khyy • Designed by Khyystore
+  </footer>
+
+</body>
+</html>
