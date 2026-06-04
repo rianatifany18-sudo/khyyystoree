@@ -117,7 +117,7 @@
     }
 
     .btn{
-      padding:14px 30px;
+      padding:12px 24px;
       border:none;
       border-radius:14px;
       cursor:pointer;
@@ -125,6 +125,7 @@
       transition:0.3s;
       text-decoration:none;
       display:inline-block;
+      text-align: center;
     }
 
     .btn-primary{
@@ -159,12 +160,8 @@
     }
 
     @keyframes float{
-      0%,100%{
-        transform:translateY(0px);
-      }
-      50%{
-        transform:translateY(-15px);
-      }
+      0%,100%{ transform:translateY(0px); }
+      50%{ transform:translateY(-15px); }
     }
 
     section{
@@ -198,6 +195,8 @@
       overflow:hidden;
       transition:0.35s;
       backdrop-filter:blur(15px);
+      display: flex;
+      flex-direction: column;
     }
 
     .card:hover{
@@ -213,6 +212,9 @@
 
     .card-content{
       padding:24px;
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
     }
 
     .card-content h3{
@@ -220,33 +222,9 @@
       font-size:24px;
     }
 
-    .paket-select{
-      width:100%;
-      padding:14px;
-      border-radius:12px;
-      border:none;
-      margin-bottom:18px;
-      background:rgba(255,255,255,0.08);
-      color:white;
-      outline:none;
-      font-size:15px;
-    }
-
-    .paket-select option{
-      background:#0f172a;
-      color:white;
-    }
-
     .card-content p{
       color:#cbd5e1;
       line-height:1.7;
-      margin-bottom:18px;
-    }
-
-    .price{
-      font-size:28px;
-      font-weight:700;
-      color:#60a5fa;
       margin-bottom:18px;
     }
 
@@ -256,6 +234,166 @@
       margin-bottom:18px;
       color:#94a3b8;
       font-size:14px;
+    }
+
+    .btn-detail {
+      width: 100%;
+      margin-top: auto;
+    }
+
+    /* --- STYLE MODAL DETAIL PRODUK --- */
+    .modal {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(15, 23, 42, 0.85);
+      backdrop-filter: blur(10px);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 2000;
+      opacity: 0;
+      pointer-events: none;
+      transition: 0.4s ease;
+      padding: 20px;
+    }
+
+    .modal.active {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .modal-content {
+      background: #1e293b;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      width: 100%;
+      max-width: 800px;
+      max-height: 85vh;
+      border-radius: 24px;
+      overflow-y: auto;
+      padding: 30px;
+      position: relative;
+      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+      transform: scale(0.9);
+      transition: 0.4s ease;
+    }
+
+    .modal.active .modal-content {
+      transform: scale(1);
+    }
+
+    .close-modal {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      background: rgba(255,255,255,0.1);
+      border: none;
+      color: white;
+      font-size: 20px;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      cursor: pointer;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      transition: 0.3s;
+    }
+
+    .close-modal:hover {
+      background: #ef4444;
+    }
+
+    .modal-title {
+      font-size: 28px;
+      margin-bottom: 25px;
+      font-weight: 700;
+      border-bottom: 2px solid rgba(255,255,255,0.08);
+      padding-bottom: 10px;
+    }
+
+    .sub-product-list {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .sub-product-item {
+      display: flex;
+      align-items: center;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      padding: 15px;
+      border-radius: 16px;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .sub-product-item img {
+      width: 140px;
+      height: 140px;
+      object-fit: cover;
+      border-radius: 16px;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      transition: transform 0.3s ease;
+    }
+
+    .sub-product-item:hover img {
+      transform: scale(1.05);
+    }
+
+    .sub-product-info {
+      flex: 1;
+      min-width: 200px;
+    }
+
+    .sub-product-info h4 {
+      font-size: 20px;
+      margin-bottom: 5px;
+    }
+
+    .sub-product-price {
+      font-size: 18px;
+      color: #60a5fa;
+      font-weight: 600;
+      margin-bottom: 6px;
+    }
+
+    /* FITUR BARU: Style Label Stok */
+    .product-stock {
+      display: inline-block;
+      font-size: 13px;
+      padding: 4px 10px;
+      border-radius: 8px;
+      font-weight: 500;
+    }
+
+    .stock-available {
+      background: rgba(37, 211, 102, 0.15);
+      color: #4ade80;
+      border: 1px solid rgba(37, 211, 102, 0.2);
+    }
+
+    .stock-empty {
+      background: rgba(239, 68, 68, 0.15);
+      color: #f87171;
+      border: 1px solid rgba(239, 68, 68, 0.2);
+    }
+
+    .btn-wa-beli {
+      padding: 12px 24px;
+      font-size: 14px;
+      border-radius: 10px;
+      background: #25d366;
+      color: white;
+      box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3);
+    }
+
+    .btn-wa-beli:hover {
+      background: #1ebd58;
+      transform: translateY(-2px);
     }
 
     .features{
@@ -273,48 +411,10 @@
       transition:0.3s;
     }
 
-    .feature-box:hover{
-      transform:translateY(-8px);
-    }
-
-    .feature-box .icon{
-      font-size:50px;
-      margin-bottom:15px;
-    }
-
-    .feature-box h3{
-      margin-bottom:10px;
-    }
-
-    .feature-box p{
-      color:#cbd5e1;
-      line-height:1.7;
-    }
-
-    .testimonial{
-      background:linear-gradient(135deg,rgba(59,130,246,0.15),rgba(236,72,153,0.15));
-      border-radius:30px;
-      padding:50px;
-      text-align:center;
-      border:1px solid rgba(255,255,255,0.08);
-    }
-
-    .testimonial img{
-      width:100px;
-      height:100px;
-      border-radius:50%;
-      object-fit:cover;
-      margin-bottom:20px;
-      border:4px solid rgba(255,255,255,0.15);
-    }
-
-    .testimonial p{
-      color:#e2e8f0;
-      line-height:1.9;
-      max-width:700px;
-      margin:auto;
-      margin-bottom:20px;
-    }
+    .feature-box:hover{ transform:translateY(-8px); }
+    .feature-box .icon{ font-size:50px; margin-bottom:15px; }
+    .feature-box h3{ margin-bottom:10px; }
+    .feature-box p{ color:#cbd5e1; line-height:1.7; }
 
     .cta{
       text-align:center;
@@ -324,17 +424,8 @@
       margin:90px 8%;
     }
 
-    .cta h2{
-      font-size:48px;
-      margin-bottom:15px;
-    }
-
-    .cta p{
-      max-width:700px;
-      margin:auto;
-      line-height:1.8;
-      margin-bottom:25px;
-    }
+    .cta h2{ font-size:48px; margin-bottom:15px; }
+    .cta p{ max-width:700px; margin:auto; line-height:1.8; margin-bottom:25px; }
 
     footer{
       text-align:center;
@@ -345,31 +436,18 @@
     }
 
     @media(max-width:900px){
-      .hero-text h1{
-        font-size:46px;
-      }
-
-      nav{
-        display:none;
-      }
-
-      .hero{
-        padding-top:120px;
-      }
+      .hero-text h1{ font-size:46px; }
+      nav{ display:none; }
+      .hero{ padding-top:120px; }
     }
 
     @media(max-width:600px){
-      .hero-text h1{
-        font-size:38px;
-      }
-
-      .section-title h2{
-        font-size:32px;
-      }
-
-      .cta h2{
-        font-size:34px;
-      }
+      .hero-text h1{ font-size:38px; }
+      .section-title h2{ font-size:32px; }
+      .cta h2{ font-size:34px; }
+      .sub-product-item { justify-content: center; text-align: center; }
+      .sub-product-item img { width: 100%; max-width: 200px; height: 200px; }
+      .btn-wa-beli { width: 100%; }
     }
   </style>
 </head>
@@ -380,11 +458,9 @@
 
   <header>
     <div class="logo">Khyystore</div>
-
     <nav>
       <a href="#produk">Produk</a>
       <a href="#fitur">Fitur</a>
-      <a href="#testimoni">Testimoni</a>
       <a href="#kontak">Kontak</a>
     </nav>
   </header>
@@ -392,31 +468,28 @@
   <section class="hero">
     <div class="hero-text">
       <h1>Jual Akun <span>Sosmed aman</span> dan Terpercaya</h1>
-
-      <p>
-        Temukan berbagai akun sosial media berkualitas untuk kebutuhan bisnis atau personal kamu. Pilih paket sesuai kebutuhan dan beli dengan mudah via WhatsApp.
-      </p>
-
+      <p>Temukan berbagai akun sosial media berkualitas untuk kebutuhan bisnis atau personal kamu. Pilih paket sesuai kebutuhan dan beli dengan mudah via WhatsApp.</p>
       <div class="hero-buttons">
         <a href="#produk" class="btn btn-primary">Lihat Produk</a>
         <a href="#kontak" class="btn btn-secondary">Hubungi Admin</a>
       </div>
     </div>
-
     <div class="hero-image">
       <img src="https://i.ibb.co/7t62Gf51/IMG-20260514-144218.png" alt="social media" />
     </div>
   </section>
 
+  <!-- SECTION PRODUK UTAMA -->
   <section id="produk">
     <div class="section-title">
       <h2>Produk Terlaris</h2>
-      <p>Pilih akun sosial media sesuai kebutuhan kamu</p>
+      <p>Klik tombol tampilkan untuk melihat jenis akun yang tersedia</p>
     </div>
 
     <div class="card-grid">
 
-      <div class="card" data-phone="6283869485180">
+      <!-- GMAIL CARD -->
+      <div class="card">
         <img src="https://images.unsplash.com/photo-1557200134-90327ee9fafa?q=80&w=1200&auto=format&fit=crop" alt="Email Service" />
         <div class="card-content">
           <h3>Gmail cuyy</h3>
@@ -425,18 +498,12 @@
             <span>✔ Secure Access</span>
           </div>
           <p>Layanan pembuatan email dan bantuan setup akun digital.</p>
-          <select class="paket-select">
-            <option value="Gmail Fresh - Rp4.000">Gmail Fresh - Rp4.000</option>
-            <option value="Gmail Bekas - Rp2.000">Gmail Bekas - Rp2.000</option>
-            <option value="Custom Gmail - Rp6.000">Custom Gmail - Rp6.000</option>
-            <option value="Gmail Trial Yt - Rp6.000">Gmail Trial Yt - Rp6.000</option>
-            <option value="Gmail Trial Gemini - Rp7.000">Gmail Trial Gemini - Rp7.000</option>
-          </select>
-          <a href="#" class="btn btn-primary btn-beli" target="_blank">Beli via WhatsApp</a>
+          <button class="btn btn-primary btn-detail" onclick="openModal('gmailModal')">Tampilkan Produk</button>
         </div>
       </div>
 
-      <div class="card" data-phone="6283869485180">
+      <!-- INSTAGRAM CARD -->
+      <div class="card">
         <img src="https://images.unsplash.com/photo-1611262588024-d12430b98920?q=80&w=1200&auto=format&fit=crop" alt="Instagram" />
         <div class="card-content">
           <h3>Instagram Sesuai foll</h3>
@@ -445,17 +512,12 @@
             <span>✔ Fast Delivery</span>
           </div>
           <p>Pilih paket followers Instagram sesuai kebutuhan kamu.</p>
-          <select class="paket-select">
-            <option value="Instagram 100 Followers - Rp7.000">Instagram 100 Followers - Rp7.000</option>
-            <option value="Instagram 1K Followers - Rp45.000">Instagram 1K Followers - Rp45.000</option>
-            <option value="Instagram Old Account - Rp25.000">Instagram Old Account  - Rp25.000</option>
-            <option value="Instagram Fesh Account - Rp1.000">Instagram Fesh Account - Rp1.000</option>
-          </select>
-          <a href="#" class="btn btn-primary btn-beli" target="_blank">Beli via WhatsApp</a>
+          <button class="btn btn-primary btn-detail" onclick="openModal('instagramModal')">Tampilkan Produk</button>
         </div>
       </div>
 
-      <div class="card" data-phone="6283869485180">
+      <!-- TIKTOK CARD -->
+      <div class="card">
         <img src="https://i.ibb.co/fdKvGcwC/images.png" alt="TikTok" />
         <div class="card-content">
           <h3>TikTok Followers</h3>
@@ -464,38 +526,26 @@
             <span>✔ Trusted</span>
           </div>
           <p>Paket TikTok followers dan akun siap promosi.</p>
-          <select class="paket-select">
-            <option value="TikTok Fresh Account - Rp500">TikTok Fresh Account - Rp500</option>
-            <option value="TikTok 100 Followers - Rp7.000">TikTok 100 Followers - Rp7.000</option>
-            <option value="TikTok 1000 Followers - Rp75.000">TikTok 1000 Followers - Rp75.000</option>
-            <option value="TikTok 10K Followers - Rp --">TikTok 10K Followers - Rp --</option>
-          </select>
-          <a href="#" class="btn btn-primary btn-beli" target="_blank">Beli via WhatsApp</a>
+          <button class="btn btn-primary btn-detail" onclick="openModal('tiktokModal')">Tampilkan Produk</button>
         </div>
       </div>
 
-      <div class="card" data-phone="6283869485180">
+      <!-- FACEBOOK CARD -->
+      <div class="card">
         <img src="https://i.ibb.co/Qjc6TXmZ/images.jpg" alt="Facebook" />
         <div class="card-content">
           <h3>Facebook Account</h3>
           <div class="stats">
-            <span>✔ flast login</span>
+            <span>✔ Fast login</span>
             <span>✔ Ready Login</span>
           </div>
           <p>Berbagai pilihan akun Facebook sesuai kebutuhan bisnis atau personal.</p>
-          <select class="paket-select">
-            <option value="Facebook Fresh Account - Rp1.100">Facebook Fresh Account - Rp1.100</option>
-            <option value="Facebook Fresh A2f - Rp2.000">Facebook Fresh A2f    - Rp2.000</option>
-            <option value="Facebook Fresh halaman - Rp4.500">Facebook Fresh halaman - Rp4.500</option>
-            <option value="Facebook Tmn 100+hlaman - Rp6.000">Facebook Tmn 100+hlaman - Rp6.000</option>
-            <option value="Facebook old Account - Rp25.000">Facebook old Account - Rp25.000</option>
-            <option value="Facebook 5K Friends - Rp30.000">Facebook 5K Friends - Rp30.000</option>
-          </select>
-          <a href="#" class="btn btn-primary btn-beli" target="_blank">Beli via WhatsApp</a>
+          <button class="btn btn-primary btn-detail" onclick="openModal('facebookModal')">Tampilkan Produk</button>
         </div>
       </div>
 
-      <div class="card" data-phone="6283869485180">
+      <!-- NOMOR KOSONG CARD -->
+      <div class="card">
         <img src="https://images.unsplash.com/photo-1521791136064-7986c2920216?q=80&w=1200&auto=format&fit=crop" alt="Nomor Kosong" />
         <div class="card-content">
           <h3>Nomor Kosong</h3>
@@ -504,18 +554,12 @@
             <span>✔ OTP Ready</span>
           </div>
           <p>Nomor kosong siap pakai untuk verifikasi akun sosial media dan kebutuhan digital lainnya.</p>
-          <select class="paket-select">
-            <option value="Nomor Indonesia Fresh - Rp3.000">Nomor Indonesia Fresh - Rp5.000</option>
-            <option value="Nomor WhatsApp Ready - Rp8.000">Nomor fresh Luar - Rp4.000</option>
-            <option value="Nomor Telegram Ready - Rp5.000">Nomor Telegram Ready - Rp6.000</option>
-            <option value="Nomor OTP All Sosmed - Rp10.000">Nomor OTP All Apk - Rp10.000</option>
-            <option value="Nomor Permanen - Rp25.000">Nomor Amerika - Rp15.000</option>
-          </select>
-          <a href="#" class="btn btn-primary btn-beli" target="_blank">Beli via WhatsApp</a>
+          <button class="btn btn-primary btn-detail" onclick="openModal('nomorModal')">Tampilkan Produk</button>
         </div>
       </div>
 
-      <div class="card" data-phone="6283869485180">
+      <!-- YOUTUBE CARD -->
+      <div class="card">
         <img src="https://i.ibb.co/zTGKLSNN/download.jpg" alt="YouTube" />
         <div class="card-content">
           <h3>YouTube Channel</h3>
@@ -524,44 +568,363 @@
             <span>✔ Subscriber Active</span>
           </div>
           <p>Channel YouTube siap upload dan monetisasi.</p>
-          <select class="paket-select">
-            <option value="YouTube 1K Subscriber - Rp150.000">YouTube 1K Subscriber - Rp150.000</option>
-            <option value="YouTube Monetisasi - Rp2.250.000">YouTube Monetisasi - Rp2.250.000</option>
-            <option value="YouTube Gaming Channel - Rp1.500.000">YouTube Gaming Channel - Rp1.500.000</option>
-            <option value="YouTube Shorts Channel - Rp850.000">YouTube Shorts Channel - Rp850.000</option>
-          </select>
-          <a href="#" class="btn btn-primary btn-beli" target="_blank">Beli via WhatsApp</a>
+          <button class="btn btn-primary btn-detail" onclick="openModal('youtubeModal')">Tampilkan Produk</button>
         </div>
       </div>
 
     </div>
   </section>
 
+  <!-- ==================================================== -->
+  <!-- MODAL / JENDELA DETAIL UNTUK MASING-MASING PRODUK    -->
+  <!-- ==================================================== -->
+
+  <!-- 1. MODAL GMAIL -->
+  <div id="gmailModal" class="modal">
+    <div class="modal-content">
+      <button class="close-modal" onclick="closeModal('gmailModal')">&times;</button>
+      <div class="modal-title">Daftar Produk Gmail</div>
+      <div class="sub-product-list">
+        <div class="sub-product-item">
+          <img src="https://images.unsplash.com/photo-1557200134-90327ee9fafa?q=80&w=300" alt="Gmail Fresh">
+          <div class="sub-product-info">
+            <h4>Gmail Fresh</h4>
+            <div class="sub-product-price">Rp4.000</div>
+            <div class="product-stock stock-available">Stok: 52 akun</div>
+          </div>
+          <a href="https://wa.me/6283869485180?text=Halo%20Admin%2C%20saya%20ingin%20membeli%20produk%3A%20*Gmail%20Fresh%20-%20Rp4.000*" target="_blank" class="btn btn-wa-beli">Beli Sekarang</a>
+        </div>
+
+        <div class="sub-product-item">
+          <img src="https://images.unsplash.com/photo-1557200134-90327ee9fafa?q=80&w=300" alt="Gmail Bekas">
+          <div class="sub-product-info">
+            <h4>Gmail Bekas</h4>
+            <div class="sub-product-price">Rp2.000</div>
+            <div class="product-stock stock-available">Stok: 18 akun</div>
+          </div>
+          <a href="https://wa.me/6283869485180?text=Halo%20Admin%2C%20saya%20ingin%20membeli%20produk%3A%20*Gmail%20Bekas%20-%20Rp2.000*" target="_blank" class="btn btn-wa-beli">Beli Sekarang</a>
+        </div>
+
+        <div class="sub-product-item">
+          <img src="https://images.unsplash.com/photo-1557200134-90327ee9fafa?q=80&w=300" alt="Custom Gmail">
+          <div class="sub-product-info">
+            <h4>Custom Gmail</h4>
+            <div class="sub-product-price">Rp5.000</div>
+            <div class="product-stock stock-available">Stok: unlimited</div>
+          </div>
+          <a href="https://wa.me/6283869485180?text=Halo%20Admin%2C%20saya%20ingin%20membeli%20produk%3A%20*Custom%20Gmail%20-%20Rp6.000*" target="_blank" class="btn btn-wa-beli">Beli Sekarang</a>
+        </div>
+
+        <div class="sub-product-item">
+          <img src="https://images.unsplash.com/photo-1557200134-90327ee9fafa?q=80&w=300" alt="Gmail Trial Yt">
+          <div class="sub-product-info">
+            <h4>Gmail Trial Yt</h4>
+            <div class="sub-product-price">Rp5.000</div>
+            <div class="product-stock stock-empty">Stok: Habis</div>
+          </div>
+          <a href="https://wa.me/6283869485180?text=Halo%20Admin%2C%20saya%20ingin%20membeli%20produk%3A%20*Gmail%20Trial%20Yt%20-%20Rp6.000*" target="_blank" class="btn btn-wa-beli">Beli Sekarang</a>
+        </div>
+
+        <div class="sub-product-item">
+          <img src="https://images.unsplash.com/photo-1557200134-90327ee9fafa?q=80&w=300" alt="Gmail Trial Gemini">
+          <div class="sub-product-info">
+            <h4>Gmail Trial Gemini</h4>
+            <div class="sub-product-price">Rp7.000</div>
+            <div class="product-stock stock-empty">Stok: Habis</div>
+          </div>
+          <a href="https://wa.me/6283869485180?text=Halo%20Admin%2C%20saya%20ingin%20membeli%20produk%3A%20*Gmail%20Trial%20Gemini%20-%20Rp7.000*" target="_blank" class="btn btn-wa-beli">Beli Sekarang</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 2. MODAL INSTAGRAM -->
+  <div id="instagramModal" class="modal">
+    <div class="modal-content">
+      <button class="close-modal" onclick="closeModal('instagramModal')">&times;</button>
+      <div class="modal-title">Daftar Produk Instagram</div>
+      <div class="sub-product-list">
+        <div class="sub-product-item">
+          <img src="https://images.unsplash.com/photo-1611262588024-d12430b98920?q=80&w=300" alt="Instagram 100 Followers">
+          <div class="sub-product-info">
+            <h4>Instagram 100 Followers</h4>
+            <div class="sub-product-price">Rp7.000</div>
+            <div class="product-stock stock-available">Stok: 10 Akun</div>
+          </div>
+          <a href="https://wa.me/6281234567890?text=Halo%20Admin%2C%20saya%20ingin%20membeli%20produk%3A%20*Instagram%20100%20Followers%20-%20Rp7.000*" target="_blank" class="btn btn-wa-beli">Beli Sekarang</a>
+        </div>
+
+        <div class="sub-product-item">
+          <img src="https://images.unsplash.com/photo-1611262588024-d12430b98920?q=80&w=300" alt="Instagram 1K Followers">
+          <div class="sub-product-info">
+            <h4>Instagram 1K Followers</h4>
+            <div class="sub-product-price">Rp45.000</div>
+            <div class="product-stock stock-available">Stok: 4 akun</div>
+          </div>
+          <a href="https://wa.me/6281234567890?text=Halo%20Admin%2C%20saya%20ingin%20membeli%20produk%3A%20*Instagram%201K%20Followers%20-%20Rp45.000*" target="_blank" class="btn btn-wa-beli">Beli Sekarang</a>
+        </div>
+
+        <div class="sub-product-item">
+          <img src="https://images.unsplash.com/photo-1611262588024-d12430b98920?q=80&w=300" alt="Instagram Old Account">
+          <div class="sub-product-info">
+            <h4>Instagram Old Account</h4>
+            <div class="sub-product-price">Rp25.000</div>
+            <div class="product-stock stock-available">Stok: 3 akun</div>
+          </div>
+          <a href="https://wa.me/6281234567890?text=Halo%20Admin%2C%20saya%20ingin%20membeli%20produk%3A%20*Instagram%20Old%20Account%20-%20Rp25.000*" target="_blank" class="btn btn-wa-beli">Beli Sekarang</a>
+        </div>
+
+        <div class="sub-product-item">
+          <img src="https://images.unsplash.com/photo-1611262588024-d12430b98920?q=80&w=300" alt="Instagram Fresh Account">
+          <div class="sub-product-info">
+            <h4>Instagram Fresh Account</h4>
+            <div class="sub-product-price">Rp1.000</div>
+            <div class="product-stock stock-available">Stok: 120 akun</div>
+          </div>
+          <a href="https://wa.me/6281234567890?text=Halo%20Admin%2C%20saya%20ingin%20membeli%20produk%3A%20*Instagram%20Fresh%20Account%20-%20Rp1.000*" target="_blank" class="btn btn-wa-beli">Beli Sekarang</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 3. MODAL TIKTOK -->
+  <div id="tiktokModal" class="modal">
+    <div class="modal-content">
+      <button class="close-modal" onclick="closeModal('tiktokModal')">&times;</button>
+      <div class="modal-title">Daftar Produk TikTok</div>
+      <div class="sub-product-list">
+        <div class="sub-product-item">
+          <img src="https://i.ibb.co/fdKvGcwC/images.png" alt="TikTok Fresh Account">
+          <div class="sub-product-info">
+            <h4>TikTok Fresh Account</h4>
+            <div class="sub-product-price">Rp500</div>
+            <div class="product-stock stock-available">Stok: 50 akun</div>
+          </div>
+          <a href="https://wa.me/6283869485180?text=Halo%20Admin%2C%20saya%20ingin%20membeli%20produk%3A%20*TikTok%20Fresh%20Account%20-%20Rp500*" target="_blank" class="btn btn-wa-beli">Beli Sekarang</a>
+        </div>
+
+        <div class="sub-product-item">
+          <img src="https://i.ibb.co/fdKvGcwC/images.png" alt="TikTok 100 Followers">
+          <div class="sub-product-info">
+            <h4>TikTok 100 Followers</h4>
+            <div class="sub-product-price">Rp7.000</div>
+            <div class="product-stock stock-available">Stok: 10 akun</div>
+          </div>
+          <a href="https://wa.me/6283869485180?text=Halo%20Admin%2C%20saya%20ingin%20membeli%20produk%3A%20*TikTok%20100%20Followers%20-%20Rp7.000*" target="_blank" class="btn btn-wa-beli">Beli Sekarang</a>
+        </div>
+
+        <div class="sub-product-item">
+          <img src="https://i.ibb.co/fdKvGcwC/images.png" alt="TikTok 1000 Followers">
+          <div class="sub-product-info">
+            <h4>TikTok 1000 Followers</h4>
+            <div class="sub-product-price">Rp75.000</div>
+            <div class="product-stock stock-available">Stok: 2 akun</div>
+          </div>
+          <a href="https://wa.me/6283869485180?text=Halo%20Admin%2C%20saya%20ingin%20membeli%20produk%3A%20*TikTok%201000%20Followers%20-%20Rp75.000*" target="_blank" class="btn btn-wa-beli">Beli Sekarang</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 4. MODAL FACEBOOK -->
+  <div id="facebookModal" class="modal">
+    <div class="modal-content">
+      <button class="close-modal" onclick="closeModal('facebookModal')">&times;</button>
+      <div class="modal-title">Daftar Produk Facebook</div>
+      <div class="sub-product-list">
+        <div class="sub-product-item">
+          <img src="https://i.ibb.co/Qjc6TXmZ/images.jpg" alt="Facebook Fresh Account">
+          <div class="sub-product-info">
+            <h4>Facebook Fresh Account</h4>
+            <div class="sub-product-price">Rp1.300</div>
+            <div class="product-stock stock-available">Stok: 500 akun</div>
+          </div>
+          <a href="https://wa.me/6283869485180?text=Halo%20Admin%2C%20saya%20ingin%20membeli%20produk%3A%20*Facebook%20Fresh%20Account%20-%20Rp1.100*" target="_blank" class="btn btn-wa-beli">Beli Sekarang</a>
+        </div>
+
+        <div class="sub-product-item">
+          <img src="https://i.ibb.co/Qjc6TXmZ/images.jpg" alt="Facebook Fresh A2F">
+          <div class="sub-product-info">
+            <h4>Facebook Fresh A2F</h4>
+            <div class="sub-product-price">Rp2.000</div>
+            <div class="product-stock stock-available">Stok: 70 akun</div>
+          </div>
+          <a href="https://wa.me/6283869485180?text=Halo%20Admin%2C%20saya%20ingin%20membeli%20produk%3A%20*Facebook%20Fresh%20A2F%20-%20Rp2.000*" target="_blank" class="btn btn-wa-beli">Beli Sekarang</a>
+        </div>
+
+        <div class="sub-product-item">
+          <img src="https://i.ibb.co/Qjc6TXmZ/images.jpg" alt="Facebook Fresh Halaman">
+          <div class="sub-product-info">
+            <h4>Facebook Fresh Halaman</h4>
+            <div class="sub-product-price">Rp5.000</div>
+            <div class="product-stock stock-available">Stok: 35 akun</div>
+          </div>
+          <a href="https://wa.me/6283869485180?text=Halo%20Admin%2C%20saya%20ingin%20membeli%20produk%3A%20*Facebook%20Fresh%20Halaman%20-%20Rp4.500*" target="_blank" class="btn btn-wa-beli">Beli Sekarang</a>
+        </div>
+
+        <div class="sub-product-item">
+          <img src="https://i.ibb.co/Qjc6TXmZ/images.jpg" alt="Facebook Temen 100+ Halaman">
+          <div class="sub-product-info">
+            <h4>Facebook Temen 100+ Halaman</h4>
+            <div class="sub-product-price">Rp6.000</div>
+            <div class="product-stock stock-available">Stok: 20 akun</div>
+          </div>
+          <a href="https://wa.me/6283869485180?text=Halo%20Admin%2C%20saya%20ingin%20membeli%20produk%3A%20*Facebook%20Temen%20100%2B%20Halaman%20-%20Rp6.000*" target="_blank" class="btn btn-wa-beli">Beli Sekarang</a>
+        </div>
+
+        <div class="sub-product-item">
+          <img src="https://i.ibb.co/Qjc6TXmZ/images.jpg" alt="Facebook Old Account">
+          <div class="sub-product-info">
+            <h4>Facebook Old Account</h4>
+            <div class="sub-product-price">Rp25.000</div>
+            <div class="product-stock stock-available">Stok: 5 akun</div>
+          </div>
+          <a href="https://wa.me/6283869485180?text=Halo%20Admin%2C%20saya%20ingin%20membeli%20produk%3A%20*Facebook%20Old%20Account%20-%20Rp25.000*" target="_blank" class="btn btn-wa-beli">Beli Sekarang</a>
+        </div>
+
+        <div class="sub-product-item">
+          <img src="https://i.ibb.co/Qjc6TXmZ/images.jpg" alt="Facebook 5K Friends">
+          <div class="sub-product-info">
+            <h4>Facebook 5K Friends</h4>
+            <div class="sub-product-price">Rp30.000</div>
+            <div class="product-stock stock-available">Stok: 1 akun</div>
+          </div>
+          <a href="https://wa.me/6283869485180?text=Halo%20Admin%2C%20saya%20ingin%20membeli%20produk%3A%20*Facebook%205K%20Friends%20-%20Rp30.000*" target="_blank" class="btn btn-wa-beli">Beli Sekarang</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 5. MODAL NOMOR KOSONG -->
+  <div id="nomorModal" class="modal">
+    <div class="modal-content">
+      <button class="close-modal" onclick="closeModal('nomorModal')">&times;</button>
+      <div class="modal-title">Daftar Produk Nomor Kosong</div>
+      <div class="sub-product-list">
+        <div class="sub-product-item">
+          <img src="https://images.unsplash.com/photo-1521791136064-7986c2920216?q=80&w=300" alt="Nomor Indonesia Fresh">
+          <div class="sub-product-info">
+            <h4>Nomor WhatsApp Indonesia Fresh</h4>
+            <div class="sub-product-price">Rp5.000</div>
+            <div class="product-stock stock-available">Stok: 10 nomor</div>
+          </div>
+          <a href="https://wa.me/6283869485180?text=Halo%20Admin%2C%20saya%20ingin%20membeli%20produk%3A%20*Nomor%20Indonesia%20Fresh%20-%20Rp3.000*" target="_blank" class="btn btn-wa-beli">Beli Sekarang</a>
+        </div>
+
+        <div class="sub-product-item">
+          <img src="https://images.unsplash.com/photo-1521791136064-7986c2920216?q=80&w=300" alt="Nomor WhatsApp Ready">
+          <div class="sub-product-info">
+            <h4>Nomor WhatsApp Luarnegri</h4>
+            <div class="sub-product-price">Rp5.000</div>
+            <div class="product-stock stock-available">Stok: 14 nomor</div>
+          </div>
+          <a href="https://wa.me/6283869485180?text=Halo%20Admin%2C%20saya%20ingin%20membeli%20produk%3A%20*Nomor%20WhatsApp%20Ready%20-%20Rp8.000*" target="_blank" class="btn btn-wa-beli">Beli Sekarang</a>
+        </div>
+
+        <div class="sub-product-item">
+          <img src="https://images.unsplash.com/photo-1521791136064-7986c2920216?q=80&w=300" alt="Nomor Telegram Ready">
+          <div class="sub-product-info">
+            <h4>Nokos Telegram</h4>
+            <div class="sub-product-price">Rp6.000</div>
+            <div class="product-stock stock-available">Stok: 5 nomor</div>
+          </div>
+          <a href="https://wa.me/6283869485180?text=Halo%20Admin%2C%20saya%20ingin%20membeli%20produk%3A%20*Nomor%20Telegram%20Ready%20-%20Rp5.000*" target="_blank" class="btn btn-wa-beli">Beli Sekarang</a>
+        </div>
+
+        <div class="sub-product-item">
+          <img src="https://images.unsplash.com/photo-1521791136064-7986c2920216?q=80&w=300" alt="Nomor OTP All Sosmed">
+          <div class="sub-product-info">
+            <h4>Nomor OTP All Web</h4>
+            <div class="sub-product-price">Rp1.000</div>
+            <div class="product-stock stock-available">Stok: 10 nomor</div>
+          </div>
+          <a href="https://wa.me/6283869485180?text=Halo%20Admin%2C%20saya%20ingin%20membeli%20produk%3A%20*Nomor%20OTP%20All%20Sosmed%20-%20Rp10.000*" target="_blank" class="btn btn-wa-beli">Beli Sekarang</a>
+        </div>
+
+        <div class="sub-product-item">
+          <img src="https://images.unsplash.com/photo-1521791136064-7986c2920216?q=80&w=300" alt="Nomor Permanen">
+          <div class="sub-product-info">
+            <h4>Nomor Permanen</h4>
+            <div class="sub-product-price">Rp25.000</div>
+            <div class="product-stock stock-empty">Stok: Habis</div>
+          </div>
+          <a href="https://wa.me/6283869485180?text=Halo%20Admin%2C%20saya%20ingin%20membeli%20produk%3A%20*Nomor%20Permanen%20-%20Rp25.000*" target="_blank" class="btn btn-wa-beli">Beli Sekarang</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 6. MODAL YOUTUBE -->
+  <div id="youtubeModal" class="modal">
+    <div class="modal-content">
+      <button class="close-modal" onclick="closeModal('youtubeModal')">&times;</button>
+      <div class="modal-title">Daftar Produk YouTube</div>
+      <div class="sub-product-list">
+        <div class="sub-product-item">
+          <img src="https://i.ibb.co/zTGKLSNN/download.jpg" alt="YouTube 1K Subscriber">
+          <div class="sub-product-info">
+            <h4>YouTube 1K Subscriber</h4>
+            <div class="sub-product-price">Rp150.000</div>
+            <div class="product-stock stock-empty">Stok: Habis</div>
+          </div>
+          <a href="https://wa.me/6283869485180?text=Halo%20Admin%2C%20saya%20ingin%20membeli%20produk%3A%20*YouTube%201K%20Subscriber%20-%20Rp150.000*" target="_blank" class="btn btn-wa-beli">Beli Sekarang</a>
+        </div>
+
+        <div class="sub-product-item">
+          <img src="https://i.ibb.co/zTGKLSNN/download.jpg" alt="YouTube Monetisasi">
+          <div class="sub-product-info">
+            <h4>YouTube Monetisasi</h4>
+            <div class="sub-product-price">Rp2.250.000</div>
+            <div class="product-stock stock-empty">Stok: Habis</div>
+          </div>
+          <a href="https://wa.me/6283869485180?text=Halo%20Admin%2C%20saya%20ingin%20membeli%20produk%3A%20*YouTube%20Monetisasi%20-%20Rp2.250.000*" target="_blank" class="btn btn-wa-beli">Beli Sekarang</a>
+        </div>
+
+        <div class="sub-product-item">
+          <img src="https://i.ibb.co/zTGKLSNN/download.jpg" alt="YouTube Gaming Channel">
+          <div class="sub-product-info">
+            <h4>YouTube Gaming Channel</h4>
+            <div class="sub-product-price">Rp1.500.000</div>
+            <div class="product-stock stock-empty">Stok: Habis</div>
+          </div>
+          <a href="https://wa.me/6283869485180?text=Halo%20Admin%2C%20saya%20ingin%20membeli%20produk%3A%20*YouTube%20Gaming%20Channel%20-%20Rp1.500.000*" target="_blank" class="btn btn-wa-beli">Beli Sekarang</a>
+        </div>
+
+        <div class="sub-product-item">
+          <img src="https://i.ibb.co/zTGKLSNN/download.jpg" alt="YouTube Shorts Channel">
+          <div class="sub-product-info">
+            <h4>YouTube Shorts Channel</h4>
+            <div class="sub-product-price">Rp850.000</div>
+            <div class="product-stock stock-empty">Stok: Habis</div>
+          </div>
+          <a href="https://wa.me/6283869485180?text=Halo%20Admin%2C%20saya%20ingin%20membeli%20produk%3A%20*YouTube%20Shorts%20Channel%20-%20Rp850.000*" target="_blank" class="btn btn-wa-beli">Beli Sekarang</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- RE-DESIGNED FITUR -->
   <section id="fitur">
     <div class="section-title">
       <h2>Kenapa Pilih Kami?</h2>
       <p>Kami menyediakan akun sosial media berkualitas dengan harga terbaik.</p>
     </div>
-
     <div class="features">
       <div class="feature-box">
         <div class="icon">⚡</div>
         <h3>Fast Response</h3>
         <p>Admin online cepat dan siap membantu proses transaksi kapan saja.</p>
       </div>
-
       <div class="feature-box">
         <div class="icon">🔒</div>
         <h3>Aman & Trusted</h3>
         <p>Proses transaksi aman dan akun dicek sebelum dikirim ke pembeli.</p>
       </div>
-
       <div class="feature-box">
         <div class="icon">🎨</div>
         <h3>Design Modern</h3>
         <p>Tampilan website modern dan mudah digunakan untuk pengalaman belanja yang menyenangkan.</p>
       </div>
-
       <div class="feature-box">
         <div class="icon">📱</div>
         <h3>Responsive</h3>
@@ -580,28 +943,30 @@
     © 2026 khyy • Designed by Khyystore
   </footer>
 
+  <!-- SCRIPT JAVASCRIPT UNTUK MODAL INTERAKTIF -->
   <script>
-    document.querySelectorAll('.card').forEach(card => {
-      const select = card.querySelector('.paket-select');
-      const btnBeli = card.querySelector('.btn-beli');
-      const phoneNumber = card.getAttribute('data-phone');
-
-      function updateWAUrl() {
-        const paketDipilih = select.value;
-        // Format teks pesanan
-        const teks = `Halo, saya ingin membeli paket: *${paketDipilih}*`;
-        // Encode teks agar aman untuk URL
-        const teksEncoded = encodeURIComponent(teks);
-        // Pasang ke tombol beli
-        btnBeli.href = `https://wa.me/${phoneNumber}?text=${teksEncoded}`;
+    function openModal(modalId) {
+      const modal = document.getElementById(modalId);
+      if(modal) {
+        modal.classList.add('active');
+        document.body.style.overflow = 'hidden'; 
       }
+    }
 
-      // Jalankan fungsi saat web pertama kali dimuat
-      updateWAUrl();
+    function closeModal(modalId) {
+      const modal = document.getElementById(modalId);
+      if(modal) {
+        modal.classList.remove('active');
+        document.body.style.overflow = 'auto'; 
+      }
+    }
 
-      // Jalankan fungsi setiap kali pembeli mengubah pilihan paket
-      select.addEventListener('change', updateWAUrl);
-    });
+    window.onclick = function(event) {
+      if (event.target.classList.contains('modal')) {
+        event.target.classList.remove('active');
+        document.body.style.overflow = 'auto';
+      }
+    }
   </script>
 
 </body>
